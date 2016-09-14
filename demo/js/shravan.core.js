@@ -1,4 +1,4 @@
-var host = "oswald.foundation";
+var host = "shravan.oswald.foundation";
 host == window.location.host && "https:" != window.location.protocol && (window.location.protocol="https");
 
 var back;
