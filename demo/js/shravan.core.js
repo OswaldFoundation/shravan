@@ -1,13 +1,16 @@
 var host = "oswald.foundation";
 host == window.location.host && "https:" != window.location.protocol && (window.location.protocol="https");
 
-
+var back;
 $(function() {
 	$("article").click(function() {
-		if ($(this).attr("data-current") == 1) {
-			$(".homescreen").fadeOut();
-			$("." + $(this).attr("data-function")).fadeIn();
-			if ($(this).attr("data-function") == "Phone Call") {
+		back = "homescreen";
+		if ($(this).attr("data-current") == "1") {
+			$(".homescreen").hide();
+			$("." + $(this).attr("data-function")).show();
+			if ($(this).attr("data-function") == "back") {
+				$(this).parent().hide();
+				$("." + back).show();
 			}
 		} else {
 			$("article").attr("data-current", "0");
