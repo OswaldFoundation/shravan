@@ -3,16 +3,16 @@ host == window.location.host && "https:" != window.location.protocol && (window.
 
 
 $(function() {
-	$(".shravan-box").click(function() {
+	$("article").click(function() {
 		if ($(this).attr("data-current") == 1) {
 			$(".homescreen").fadeOut();
-			$(".app").fadeIn();
+			$("." + $(this).attr("data-function")).fadeIn();
 			if ($(this).attr("data-function") == "Phone Call") {
 			}
 		} else {
-			$(".shravan-box").attr("data-current", "0");
+			$("article").attr("data-current", "0");
 			$(this).attr("data-current", "1");
-			$(".shravan-box").css("color", "#fff");
+			$("article").css("color", "#fff");
 			$(this).css("color", "#000");
 			navigator.vibrate = navigator.vibrate || navigator.webkitVibrate;
 			var speaker = $(this).attr("data-speak");
