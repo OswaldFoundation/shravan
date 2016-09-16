@@ -38,6 +38,7 @@ span {
 	left: 0;
 	right: 0;
 	bottom: 16%;
+	line-height: 1.2;
 	font-size: 170%;
 }
 span, i {
