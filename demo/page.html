@@ -37,7 +37,8 @@
 							if ($(this).attr("data-selected") == "1") {
 								$("article").each(function() {
 									$(this).animate({
-										left: "-=100%"
+										left: "-=100%",
+										"opacity": "0"
 									}, Math.random() * 1000);
 								});
 							} else {
