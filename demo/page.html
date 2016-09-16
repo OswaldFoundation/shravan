@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Shravan</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
+		<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="img/favicon-194x194.png" sizes="194x194">
+		<link rel="icon" type="image/png" href="img/android-chrome-192x192.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="manifest.json">
+		<link rel="shortcut icon" href="img/favicon.ico">
+		<meta name="application-name" content="Shravan">
+		<link rel="stylesheet" type="text/css" href="css/shravan.css">
+		<link rel="stylesheet" type="text/css" href="icons/css/font-awesome.min.css">
+	</head>
+	<body style="color: white">
+		<div id="shravan">
+			<div class="loading">Loading&hellip;</div>
+		</div>
+		<script src="js/jquery.js"></script>	
+		<script>
+
+			// SSL on domain
+			var host = "shravan.oswald.foundation";
+			host == window.location.host && "https:" != window.location.protocol && (window.location.protocol="https");
+
+			// Create "Home" elements
+			$.ajax({
+				url: "shravan.json"
+			}).done(function(shravan) {
+				$("#shravan").html("");
+				for (i = 0; i < shravan.home.length; i++) {
+					$("#shravan").append(function() {
+						return $("<article data-selected='0' data-function='" + shravan.home[i].function + "'><i class='fa fa-" + shravan.home[i].icon + "'></i><span>" + shravan.home[i].title + "</span></article>").click(function() {
+							if ($(this).attr("data-selected") == "1") {
+								$("article").each(function() {
+									$(this).animate({
+										left: "-=100%"
+									}, Math.random() * 1000);
+								});
+							} else {
+								$("article").attr("data-selected", "0");
+								$(this).attr("data-selected", "1");
+							}
+						});
+					});
+				}
+			});
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+{
+	"home": [
+		{
+			"function": "clock",
+			"title": "Clock",
+			"icon": "clock-o",
+			"feedback": "time"
+		},
+		{
+			"function": "news",
+			"title": "News",
+			"icon": "newspaper-o",
+			"feedback": "Listen to latest news"
+		},
+		{
+			"function": "music",
+			"title": "Music",
+			"icon": "music",
+			"feedback": "Play music"
+		},
+		{
+			"function": "message",
+			"title": "Message",
+			"icon": "comments",
+			"feedback": "Send a message"
+		},
+		{
+			"function": "phone",
+			"title": "Phone Call",
+			"icon": "phone",
+			"feedback": "Make a phone call"
+		},
+		{
+			"function": "settings",
+			"title": "Settings",
+			"icon": "cog",
+			"feedback": "Change your settings"
+		}
+	]
+}

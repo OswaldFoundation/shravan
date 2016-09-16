@@ -2,8 +2,10 @@ body {
 	overflow: hidden;
 	max-width: 500px;
 	margin: 0 auto;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	font-family: "OpenDyslexic3", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 	background: #000;
+	cursor: default;
+	font-weight: bold;
 }
 section:not(.homescreen) {
 	display: none;
@@ -15,20 +17,24 @@ article {
 	height: calc(100vh / 3);
 	color: #fff;
 	position: relative;
+	box-sizing: border-box;
+	transition: 0.15s;
 }
 i {
 	position: absolute;
 	left: 0;
 	right: 0;
-	top: 5vh;
-	font-size: 15vh;
+	top: 5.5vh;
+	font-size: 15vh !important;
 }
 span {
 	position: absolute;
 	left: 0;
 	right: 0;
-	bottom: 15%;
+	bottom: 16%;
 	font-size: 170%;
+}
+span, i {
 	text-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
 }
 .app {
@@ -52,4 +58,16 @@ article:nth-child(5) {
 }
 article:nth-child(6) {
 	background: rgb(92, 107, 192);
+}
+
+.loading {
+	margin-top: 20vh;
+	text-align: center;
+	color: #fff;
+	font-size: 200%;
+}
+[data-selected="1"] {
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+	transform: scale(1.02);
+	z-index: 1;
 }

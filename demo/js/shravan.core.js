@@ -11,6 +11,8 @@ $(function() {
 			if ($(this).attr("data-function") == "back") {
 				$(this).parent().hide();
 				$("." + back).show();
+			} else if ($(this).attr("data-function") == "phone-call") {
+				
 			}
 		} else {
 			$("article").attr("data-current", "0");
