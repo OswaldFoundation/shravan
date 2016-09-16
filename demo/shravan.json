@@ -36,5 +36,19 @@
 			"icon": "cog",
 			"feedback": "Change your settings"
 		}
+	],
+	"phone": [
+		{
+			"function": "potato",
+			"title": "potato",
+			"icon": "clock-o",
+			"feedback": "time"
+		},
+		{
+			"function": "potato",
+			"title": "potato",
+			"icon": "newspaper-o",
+			"feedback": "Listen to latest news"
+		}
 	]
 }

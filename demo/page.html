@@ -27,27 +27,47 @@
 			host == window.location.host && "https:" != window.location.protocol && (window.location.protocol="https");
 
 			// Create "Home" elements
+			var nextPage = shravan.home;
 			$.ajax({
 				url: "shravan.json"
 			}).done(function(shravan) {
+				start(shravan, shravan.home);
+			});
+
+			var start = function(shravan, shravan_now) {
 				$("#shravan").html("");
-				for (i = 0; i < shravan.home.length; i++) {
+				for (i = 0; i < shravan_now.length; i++) {
 					$("#shravan").append(function() {
-						return $("<article data-selected='0' data-function='" + shravan.home[i].function + "'><i class='fa fa-" + shravan.home[i].icon + "'></i><span>" + shravan.home[i].title + "</span></article>").click(function() {
+						return $("<article data-selected='0' data-function='" + shravan_now[i].function + "'><i class='fa fa-" + shravan_now[i].icon + "'></i><span>" + shravan_now[i].title + "</span></article>").css("opacity", "0").click(function() {
 							if ($(this).attr("data-selected") == "1") {
-								$("article").each(function() {
+								var doNext = $(this).attr("data-function");
+								$("article").each(function(index) {
 									$(this).animate({
 										opacity: "0"
-									}, Math.random() * 1000);
+									}, index * 50);
 								});
+								setTimeout(function() {
+									if (doNext == "phone") {
+										start(shravan, shravan.phone);
+									} else {
+										start(shravan, shravan.home);
+									}
+								}, 300);
 							} else {
 								$("article").attr("data-selected", "0");
 								$(this).attr("data-selected", "1");
 							}
+						}).ready(function() {
+							
 						});
 					});
+					$("article").each(function(index) {
+						$(this).animate({
+							opacity: "1"
+						}, index * 50);
+					})
 				}
-			});
+			}
 
 		</script>
 	</body>
