@@ -48,7 +48,7 @@
 							if ($(this).attr("data-selected") == "1") {
 								var doNext = $(this).attr("data-function");
 								$("article").each(function(index) {
-									navigator.vibrate(index * 100);
+									navigator.vibrate(1000);
 									$(this).animate({
 										opacity: "0"
 									}, index * 50);
@@ -61,6 +61,7 @@
 									}
 								}, 300);
 							} else {
+								navigator.vibrate(500);
 								$("article").attr("data-selected", "0");
 								$(this).attr("data-selected", "1");
 							}
