@@ -35,10 +35,14 @@
 			});
 
 			var start = function(shravan, shravan_now) {
+				$("#shravan").css("opacity", "0");
 				$("#shravan").html("");
+				$("#shravan").animate({
+					opacity: "1"
+				}, 300);
 				for (i = 0; i < shravan_now.length; i++) {
 					$("#shravan").append(function() {
-						return $("<article data-selected='0' data-function='" + shravan_now[i].function + "'><i class='fa fa-" + shravan_now[i].icon + "'></i><span>" + shravan_now[i].title + "</span></article>").css("opacity", "0").click(function() {
+						return $("<article data-selected='0' data-function='" + shravan_now[i].function + "'><i class='fa fa-" + shravan_now[i].icon + "'></i><span>" + shravan_now[i].title + "</span></article>").click(function() {
 							if ($(this).attr("data-selected") == "1") {
 								var doNext = $(this).attr("data-function");
 								$("article").each(function(index) {
@@ -57,15 +61,8 @@
 								$("article").attr("data-selected", "0");
 								$(this).attr("data-selected", "1");
 							}
-						}).ready(function() {
-							
 						});
 					});
-					$("article").each(function(index) {
-						$(this).animate({
-							opacity: "1"
-						}, index * 50);
-					}).delay(1);
 				}
 			}
 

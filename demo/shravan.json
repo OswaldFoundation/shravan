@@ -39,16 +39,44 @@
 	],
 	"phone": [
 		{
-			"function": "potato",
-			"title": "potato",
-			"icon": "clock-o",
-			"feedback": "time"
+			"function": "callinterface",
+			"title": "Emergency",
+			"icon": "ambulance",
+			"number": "112",
+			"feedback": "Call emergency number"
 		},
 		{
-			"function": "potato",
-			"title": "potato",
-			"icon": "newspaper-o",
-			"feedback": "Listen to latest news"
+			"function": "callinterface",
+			"title": "Doctor",
+			"icon": "user-md",
+			"number": "9312250583",
+			"feedback": "Call your doctor"
+		},
+		{
+			"function": "callinterface",
+			"title": "Anand",
+			"icon": "user",
+			"number": "9555297989",
+			"feedback": "Call Anand"
+		},
+		{
+			"function": "callinterface",
+			"title": "Mahendra",
+			"icon": "user",
+			"number": "8860844523",
+			"feedback": "Call Mahendra"
+		},
+		{
+			"function": "back",
+			"title": "Back",
+			"icon": "chevron-left",
+			"feedback": "Go back"
+		},
+		{
+			"function": "someoneelse",
+			"title": "Someone Else",
+			"icon": "ellipsis-h",
+			"feedback": "Call someone else"
 		}
 	]
 }
