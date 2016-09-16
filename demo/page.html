@@ -45,7 +45,7 @@
 				for (i = 0; i < shravan_now.length; i++) {
 					$("#shravan").append(function() {
 						return $("<article data-selected='0' data-function='" + shravan_now[i].function + "'><i class='fa fa-" + shravan_now[i].icon + "'></i><span>" + shravan_now[i].title + "</span></article>").click(function() {
-							navigator.vibrate(500);
+							navigator.vibrate(100);
 							if ($(this).attr("data-selected") == "1") {
 								var doNext = $(this).attr("data-function");
 								$("article").each(function(index) {
