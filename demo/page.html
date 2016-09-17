@@ -19,7 +19,8 @@
 		<div id="shravan">
 			<div class="loading">Loading&hellip;</div>
 		</div>
-		<script src="js/jquery.js"></script>	
+		<script src="js/jquery.js"></script>
+		<script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 		<script>
 
 			navigator.vibrate = navigator.vibrate || navigator.webkitVibrate;
@@ -36,6 +37,16 @@
 				start(shravan, shravan.home);
 			});
 
+			var speak = function(text) {
+				if ("speechSynthesis" in window) {
+					var msg = new SpeechSynthesisUtterance(text);
+					msg.lang = "hi-in";
+					window.speechSynthesis.speak(msg);
+				} else {
+					responsiveVoice.speak(text, "Hindi Female");
+				}
+			}
+
 			var number = "0";
 			var start = function(shravan, shravan_now) {
 				$("#shravan").css("opacity", "0");
@@ -45,7 +56,7 @@
 				}, 300);
 				for (i = 0; i < shravan_now.length; i++) {
 					$("#shravan").append(function() {
-						return $("<article data-number='" + shravan_now[i].number + "' data-size='" + shravan_now[i].size + "' data-selected='0' data-function='" + shravan_now[i].function + "'><i class='fa fa-" + shravan_now[i].icon + "'></i><span>" + shravan_now[i].title + "</span></article>").click(function() {
+						return $("<article data-feedback='" + shravan_now[i].feedback + "' data-number='" + shravan_now[i].number + "' data-size='" + shravan_now[i].size + "' data-selected='0' data-function='" + shravan_now[i].function + "'><i class='fa fa-" + shravan_now[i].icon + "'></i><span>" + shravan_now[i].title + "</span></article>").click(function() {
 							number = $(this).find("span").html() + "<br>" + $(this).attr("data-number");
 							if ($(this).attr("data-selected") == "1") {
 								navigator.vibrate(50);
@@ -57,14 +68,17 @@
 								});
 								setTimeout(function() {
 									if (doNext == "phone") {
+										speak("Who would you like to call?");
 										start(shravan, shravan.phone);
 									} else if (doNext == "callinterface") {
+										speak("Placing your call");
 										start(shravan, shravan.callinterface);
 									} else {
 										start(shravan, shravan.home);
 									}
 								}, 300);
 							} else {
+								speak($(this).attr("data-feedback"));
 								navigator.vibrate(50, 50);
 								$("article").attr("data-selected", "0");
 								$(this).attr("data-selected", "1");
