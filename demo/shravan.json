@@ -78,5 +78,35 @@
 			"icon": "ellipsis-h",
 			"feedback": "Call someone else"
 		}
+	],
+	"callinterface": [
+		{
+			"size": "big",
+			"title": "Calling"
+		},
+		{
+			"function": "home",
+			"title": "Mute",
+			"icon": "microphone-slash",
+			"feedback": "Mute this call"
+		},
+		{
+			"function": "home",
+			"title": "Add call",
+			"icon": "user-plus",
+			"feedback": "Add another call"
+		},
+		{
+			"function": "home",
+			"title": "End call",
+			"icon": "phone rotated",
+			"feedback": "End this call"
+		},
+		{
+			"function": "home",
+			"title": "Speaker",
+			"icon": "volume-up",
+			"feedback": "Turn on speaker phone"
+		}
 	]
 }

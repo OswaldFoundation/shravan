@@ -78,3 +78,14 @@ article:nth-child(6) {
 	transform: scale(1.04);
 	z-index: 1;
 }
+
+.rotated {
+	transform: rotate(135deg);
+}
+[data-size="big"] {
+	width: 100%;
+}
+[data-size="big"] span {
+	bottom: 30%;
+	line-height: 1.9;
+}
