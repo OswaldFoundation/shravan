@@ -30,14 +30,19 @@
 			host == window.location.host && "https:" != window.location.protocol && (window.location.protocol="https");
 
 			// Create "Home" elements
-			var nextPage = shravan.home;
 			$.ajax({
 				url: "shravan.json"
 			}).done(function(shravan) {
 				start(shravan, shravan.home);
 			});
 
+			function formatAMPM(date) { var hours = date.getHours(); var minutes = date.getMinutes(); var ampm = hours >= 12 ? 'pm' : 'am'; hours = hours % 12; hours = hours ? hours : 12; minutes = minutes < 10 ? '0'+minutes : minutes; var strTime = hours + ':' + minutes + ' ' + ampm; return strTime; }
+
 			var speak = function(text) {
+				if (text == "time") {
+					var currentdate = new Date();
+					text = "It is " + formatAMPM(currentdate);
+				}
 				if ("speechSynthesis" in window) {
 					var msg = new SpeechSynthesisUtterance(text);
 					msg.lang = "hi-in";
